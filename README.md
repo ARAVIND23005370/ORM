@@ -1,65 +1,55 @@
-# Django ORM Web Application
+# Ex02 Django ORM Web Application
+## Date: 05.03.2024
 
 ## AIM
-To develop a Django application to store and retrieve data from a database using Object Relational Mapping(ORM).
+To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
 
-Include your ER diagram here
+![alt text](image-1.png)
 
 ## DESIGN STEPS
 
 ### STEP 1:
-install myapp using 'python mnage.py startapp [your app name] ' command 
+Clone the problem from GitHub
 
 ### STEP 2:
-first edit 'settings.py' and then edit 'models.py' and then edit 'admin.py' with the appropriate codes .
+Create a new app in Django project
 
 ### STEP 3:
-create a user name and password usingfor your django  'python manage.py createsuperuser'
-and then run the program using 'python manage.py runserver [your port number]'
-### STEP 4:
-login with your username and password in django and select student table and then add 10 students detials.
-## STEP 5:
-End the Program
-## PROGRAM
-## code to edit in 'models.py'
-```
+Enter the code for admin.py and models.py
 
+### STEP 4:
+Execute Django admin and create details for 10 books
+
+## PROGRAM
+## models.py
+```
 from django.db import models
 from django.contrib import admin
+class Book_DB(models.Model):
+	author=models.CharField(max_length=20);
+	book_name=models.CharField(max_length=50);
+	book_no=models.CharField(primary_key="book_no",max_length=10);
+	customer_id=models.CharField(max_length=20);
+	edition_year=models.IntegerField();
+	shelfno=models.CharField(max_length=20);
+	
 
-
-# Create your models here.
-class Student (models.Model):
-    referencenumber=models.CharField(primary_key=True,max_length=20,help_text="reference number")
-    name=models.CharField(max_length=100)
-    age=models.IntegerField()
-    email=models.EmailField()
-    number=models.IntegerField()
-
-class StudentAdmin(admin.ModelAdmin):
-    list_display=('referencenumber','name','age','email','number')
-
-
+class Book_DBAdmin(admin.ModelAdmin):
+	list_display=("author","book_name","book_no","customer_id","edition_year","shelfno");
 
 ```
-## codes to edit in 'admin.py'
+## admin.py
 ```
 from django.contrib import admin
-from .models import Student,StudentAdmin
-
-
-# Register your models here.
-admin.site.register(Student,StudentAdmin)
-
-
+from .models import Book_DB,Book_DBAdmin
+admin.site.register(Book_DB,Book_DBAdmin)
 ```
 
 ## OUTPUT
-![Screenshot 2023-12-31 231030](https://github.com/nataraj26/ORM/assets/147514615/ad774dc6-2aba-4131-8ee1-fa4f81cb892f)
 
-
+![alt text](<Screenshot 2024-02-28 094052.png>)
 
 ## RESULT
-The student table is created successfully and the program successfully Executed.
+Thus the program for creating a database using ORM hass been executed successfully
