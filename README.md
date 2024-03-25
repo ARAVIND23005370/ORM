@@ -33,11 +33,8 @@ class Book_DB(models.Model):
 	customer_id=models.CharField(max_length=20);
 	edition_year=models.IntegerField();
 	shelfno=models.CharField(max_length=20);
-	
-
 class Book_DBAdmin(admin.ModelAdmin):
 	list_display=("author","book_name","book_no","customer_id","edition_year","shelfno");
-
 ```
 ## admin.py
 ```
@@ -45,11 +42,8 @@ from django.contrib import admin
 from .models import Book_DB,Book_DBAdmin
 admin.site.register(Book_DB,Book_DBAdmin)
 ```
-
 ## OUTPUT
 
 ![Screenshot 2024-03-12 110612](https://github.com/ARAVIND23005370/ORM/assets/148514836/0c26ade1-ce9b-4a85-a018-6d8e412033fd)
-
-
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
